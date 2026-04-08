@@ -52,7 +52,8 @@ def parse_schema_fields(schema_text: str) -> list[tuple[str, str]]:
             match = re.match(r"^([A-Za-z_][A-Za-z0-9_]*)\s*(\([^)]*\))?\s*:", stripped)
             if match:
                 field_name = match.group(1)
-                fields.append((field_name, pending_description))
+                if field_name != "id":
+                    fields.append((field_name, pending_description))
                 pending_description = ""
 
         brace_depth -= stripped.count("}")
