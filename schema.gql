@@ -1,0 +1,10 @@
+type Query {
+  """Unique identifier for the user"""
+  userId: ID!
+
+  """Display name shown in the UI"""
+  displayName: String!
+
+  """Primary contact email address"""
+  email: String!
+}
